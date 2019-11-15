@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (c) 2018 Bruce Schubert.
  * The MIT License
  * http://www.opensource.org/licenses/mit-license
@@ -29,7 +29,7 @@ export default class EoxOpenStreetMapLayer extends EnhancedWmsLayer {
         // Make this slightly translucent
         this.opacity = 0.8;
 
-        // Requesting tiles with transparency (the nominal case) causes the layer's labels to bleed 
+        // Requesting tiles with transparency (the nominal case) causes the layer's labels to bleed
         // the underlying background layer which makes for a rather ugly map.
         this.urlBuilder.transparent = false;
     }
@@ -37,9 +37,9 @@ export default class EoxOpenStreetMapLayer extends EnhancedWmsLayer {
     doRender(dc) {
         super.doRender(dc);
         if (this.inCurrentFrame) {
-            dc.screenCreditController.addStringCredit(
-                "OpenStreetMap { Data © OpenStreetMap contributers, Rendering © MapServer and EOX }",
-                WorldWind.Color.DARK_GRAY);
+            // dc.screenCreditController.addStringCredit(
+                // "OpenStreetMap { Data © OpenStreetMap contributers, Rendering © MapServer and EOX }",
+                // WorldWind.Color.DARK_GRAY);
         }
     }
 }
