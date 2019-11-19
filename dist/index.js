@@ -1762,9 +1762,11 @@ var Globe$1 = function (_Component) {
           if (this.clickMode === CLICK_MODE_DROP) this.dropCallback(terrain.position);
         }
 
-        if (this.clickMode === CLICK_MODE_PICK) {
+        if (this.clickMode === CLICK_MODE_PICK && pickList.objects) {
           var pinList = this.wwd.pick(this.wwd.canvasCoordinates(x, y));
-          this.dropCallback(pinList);
+          this.dropCallback(pinList.objects.filter(function (obj) {
+            return !obj.isTerrain;
+          }));
         }
       }
       this.setState({ isDropArmed: false });
