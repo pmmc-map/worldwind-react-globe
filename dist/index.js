@@ -1759,7 +1759,12 @@ var Globe$1 = function (_Component) {
         // Terrain should be one of the items if the globe was clicked
         var terrain = pickList.terrainObject();
         if (terrain) {
-          if (this.clickMode === CLICK_MODE_DROP) this.dropCallback(terrain.position);else this.dropCallback(pickList);
+          if (this.clickMode === CLICK_MODE_DROP) this.dropCallback(terrain.position);
+        }
+
+        if (this.clickMode === CLICK_MODE_PICK) {
+          var pinList = this.wwd.pick(this.wwd.canvasCoordinates(x, y));
+          this.dropCallback(pinList);
         }
       }
       this.setState({ isDropArmed: false });

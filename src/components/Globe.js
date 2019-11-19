@@ -492,9 +492,12 @@ export default class Globe extends Component {
       if (terrain) {
 		  if (this.clickMode === CLICK_MODE_DROP)
 			this.dropCallback(terrain.position);
-		  else
-			this.dropCallback(pickList);
       }
+
+		if (this.clickMode === CLICK_MODE_PICK) {
+			const pinList = this.wwd.pick(this.wwd.canvasCoordinates(x, y));
+			this.dropCallback(pinList);
+		}
     }
     this.setState({isDropArmed: false});
     event.stopImmediatePropagation();
