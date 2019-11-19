@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (c) 2018 Bruce Schubert.
  * The MIT License
  * http://www.opensource.org/licenses/mit-license
@@ -34,8 +34,8 @@ export default class  EoxSentinal2WithLabelsLayer extends EnhancedWmsLayer {
 
     doRender(dc) {
         super.doRender(dc);
-        if (this.inCurrentFrame) {
-            dc.screenCreditController.addStringCredit("OpenStreetMap and Sentinel-2 cloudless by EOX IT Services GmbH", WorldWind.Color.LIGHT_GRAY);
-        }
+        // if (this.inCurrentFrame) {
+            // dc.screenCreditController.addStringCredit("OpenStreetMap and Sentinel-2 cloudless by EOX IT Services GmbH", WorldWind.Color.LIGHT_GRAY);
+        // }
     }
 }

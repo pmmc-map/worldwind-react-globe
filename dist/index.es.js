@@ -989,17 +989,17 @@ var EoxOpenStreetMapLayer = function (_EnhancedWmsLayer) {
         key: 'doRender',
         value: function doRender(dc) {
             get(EoxOpenStreetMapLayer.prototype.__proto__ || Object.getPrototypeOf(EoxOpenStreetMapLayer.prototype), 'doRender', this).call(this, dc);
-            if (this.inCurrentFrame) {
-                // dc.screenCreditController.addStringCredit(
-                // "OpenStreetMap { Data © OpenStreetMap contributers, Rendering © MapServer and EOX }",
-                // WorldWind.Color.DARK_GRAY);
-            }
+            // if (this.inCurrentFrame) {
+            // dc.screenCreditController.addStringCredit(
+            // "OpenStreetMap { Data © OpenStreetMap contributers, Rendering © MapServer and EOX }",
+            // WorldWind.Color.DARK_GRAY);
+            // }
         }
     }]);
     return EoxOpenStreetMapLayer;
 }(EnhancedWmsLayer);
 
-/* 
+/*
  * Copyright (c) 2018 Bruce Schubert.
  * The MIT License
  * http://www.opensource.org/licenses/mit-license
@@ -1039,15 +1039,17 @@ var EoxSentinal2CloudlessLayer = function (_EnhancedWmsLayer) {
         key: 'doRender',
         value: function doRender(dc) {
             get(EoxSentinal2CloudlessLayer.prototype.__proto__ || Object.getPrototypeOf(EoxSentinal2CloudlessLayer.prototype), 'doRender', this).call(this, dc);
-            if (this.inCurrentFrame) {
-                dc.screenCreditController.addStringCredit("Sentinel-2 cloudless by EOX IT Services GmbH", WorldWind.Color.LIGHT_GRAY);
-            }
+            // if (this.inCurrentFrame) {
+            // dc.screenCreditController.addStringCredit(
+            // "Sentinel-2 cloudless by EOX IT Services GmbH",
+            // WorldWind.Color.LIGHT_GRAY);
+            // }
         }
     }]);
     return EoxSentinal2CloudlessLayer;
 }(EnhancedWmsLayer);
 
-/* 
+/*
  * Copyright (c) 2018 Bruce Schubert.
  * The MIT License
  * http://www.opensource.org/licenses/mit-license
@@ -1087,9 +1089,9 @@ var EoxSentinal2WithLabelsLayer = function (_EnhancedWmsLayer) {
         key: 'doRender',
         value: function doRender(dc) {
             get(EoxSentinal2WithLabelsLayer.prototype.__proto__ || Object.getPrototypeOf(EoxSentinal2WithLabelsLayer.prototype), 'doRender', this).call(this, dc);
-            if (this.inCurrentFrame) {
-                dc.screenCreditController.addStringCredit("OpenStreetMap and Sentinel-2 cloudless by EOX IT Services GmbH", WorldWind.Color.LIGHT_GRAY);
-            }
+            // if (this.inCurrentFrame) {
+            // dc.screenCreditController.addStringCredit("OpenStreetMap and Sentinel-2 cloudless by EOX IT Services GmbH", WorldWind.Color.LIGHT_GRAY);
+            // }
         }
     }]);
     return EoxSentinal2WithLabelsLayer;

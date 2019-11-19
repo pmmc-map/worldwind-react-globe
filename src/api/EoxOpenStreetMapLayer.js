@@ -36,10 +36,10 @@ export default class EoxOpenStreetMapLayer extends EnhancedWmsLayer {
 
     doRender(dc) {
         super.doRender(dc);
-        if (this.inCurrentFrame) {
+        // if (this.inCurrentFrame) {
             // dc.screenCreditController.addStringCredit(
                 // "OpenStreetMap { Data © OpenStreetMap contributers, Rendering © MapServer and EOX }",
                 // WorldWind.Color.DARK_GRAY);
-        }
+        // }
     }
 }
