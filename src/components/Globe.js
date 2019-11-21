@@ -51,6 +51,8 @@ export default class Globe extends Component {
     this.nextLayerId = 1;
     this.categoryTimestamps = new Map();
 
+	this.bingMapsKey = this.props.bingMapsKey;
+
     // Projection support
     this.roundGlobe = null;
     this.flatGlobe = null;
@@ -95,7 +97,11 @@ export default class Globe extends Component {
     /**
      * A callback function to push state up to the parent
      */
-    onUpdate: PropTypes.func
+    onUpdate: PropTypes.func,
+    /**
+     * Bing maps key for drawing bing layers
+     */
+	bingMapsKey: PropTypes.string.isRequired,
   }
 
   static get categories() {
@@ -172,6 +178,7 @@ export default class Globe extends Component {
    */
   addLayer(layer, options) {
     let wwLayer = null;
+	  this.wwd.BingMapsKey = this.bingMapsKey;
 
     if (typeof layer === 'string') {
       wwLayer = this.createLayer(layer);
@@ -237,6 +244,7 @@ export default class Globe extends Component {
    */
   createLayer(layerType) {
     let type = null;
+	  this.wwd.BingMapsKey = this.bingMapsKey;
 
     if (Globe.layerTypes.has(layerType)) {
       // layerType is a key
@@ -565,6 +573,7 @@ export default class Globe extends Component {
    * Creates the WorldWindow after mounting.
    */
   componentDidMount() {
+	  WorldWind.BingMapsKey = this.bingMapsKey;
     // Create the WorldWindow using the ID of the canvas
     this.wwd = new WorldWind.WorldWindow(this.canvasId);
 

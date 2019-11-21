@@ -1278,6 +1278,8 @@ var Globe$1 = function (_Component) {
     _this.nextLayerId = 1;
     _this.categoryTimestamps = new Map();
 
+    _this.bingMapsKey = _this.props.bingMapsKey;
+
     // Projection support
     _this.roundGlobe = null;
     _this.flatGlobe = null;
@@ -1303,6 +1305,7 @@ var Globe$1 = function (_Component) {
      */
     value: function addLayer(layer, options) {
       var wwLayer = null;
+      this.wwd.BingMapsKey = this.bingMapsKey;
 
       if (typeof layer === 'string') {
         wwLayer = this.createLayer(layer);
@@ -1420,6 +1423,7 @@ var Globe$1 = function (_Component) {
     key: 'createLayer',
     value: function createLayer(layerType) {
       var type = null;
+      this.wwd.BingMapsKey = this.bingMapsKey;
 
       if (Globe$$1.layerTypes.has(layerType)) {
         // layerType is a key
@@ -2022,7 +2026,11 @@ Globe$1.propTypes = {
   /**
    * A callback function to push state up to the parent
    */
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func,
+  /**
+   * Bing maps key for drawing bing layers
+   */
+  bingMapsKey: PropTypes.string.isRequired
 };
 Globe$1.projections = ["3D", "Equirectangular", "Mercator", "North Polar", "South Polar", "North UPS", "South UPS", "North Gnomonic", "South Gnomonic"];
 Globe$1.isBaseUrlSet = false;
