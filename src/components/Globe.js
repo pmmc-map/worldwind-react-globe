@@ -497,10 +497,14 @@ export default class Globe extends Component {
       const pickList = this.wwd.pickTerrain(this.wwd.canvasCoordinates(x, y));
       // Terrain should be one of the items if the globe was clicked
       const terrain = pickList.terrainObject();
-      if (terrain) {
-		  if (this.clickMode === CLICK_MODE_DROP)
-			this.dropCallback(terrain.position);
-      }
+
+		if (this.clickMode === CLICK_MODE_DROP) {
+			if (terrain) {
+				this.dropCallback(terrain.position);
+			} else {
+				this.dropCallback(null);
+			}
+		}
 
 		if (this.clickMode === CLICK_MODE_PICK && pickList.objects) {
 			const pinList = this.wwd.pick(this.wwd.canvasCoordinates(x, y));

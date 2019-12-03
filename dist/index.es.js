@@ -1759,8 +1759,13 @@ var Globe$1 = function (_Component) {
         var pickList = this.wwd.pickTerrain(this.wwd.canvasCoordinates(x, y));
         // Terrain should be one of the items if the globe was clicked
         var terrain = pickList.terrainObject();
-        if (terrain) {
-          if (this.clickMode === CLICK_MODE_DROP) this.dropCallback(terrain.position);
+
+        if (this.clickMode === CLICK_MODE_DROP) {
+          if (terrain) {
+            this.dropCallback(terrain.position);
+          } else {
+            this.dropCallback(null);
+          }
         }
 
         if (this.clickMode === CLICK_MODE_PICK && pickList.objects) {
@@ -1845,6 +1850,7 @@ var Globe$1 = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      WorldWind.BingMapsKey = this.bingMapsKey;
       // Create the WorldWindow using the ID of the canvas
       this.wwd = new WorldWind.WorldWindow(this.canvasId);
 
